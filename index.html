@@ -74,6 +74,10 @@
       .loop-robot-wheel { fill: #355746; }
       .loop-robot-column { fill: #f5efe5; stroke: rgba(53, 87, 70, .35); stroke-width: .8; }
       .loop-robot-body, .loop-robot-face { fill: #ffffff; stroke: rgba(53, 87, 70, .35); stroke-width: .8; }
+      .loop-robot-shoulder, .loop-robot-limb { fill: #ffffff; stroke: rgba(53, 87, 70, .35); stroke-width: .8; }
+      .loop-robot-joint { fill: #f5efe5; stroke: rgba(53, 87, 70, .35); stroke-width: .8; }
+      .loop-robot-palm { fill: #355746; stroke: rgba(17, 18, 15, .28); stroke-width: .8; }
+      .loop-robot-platform { fill: #f5efe5; stroke: rgba(53, 87, 70, .35); stroke-width: .8; }
       .loop-robot-eye { fill: #11120f; }
       .loop-arm { fill: none; stroke: #ffffff; stroke-width: 4.4; stroke-linecap: round; stroke-linejoin: round; }
       .loop-hand { fill: #9abf8c; stroke: rgba(17, 18, 15, .28); stroke-width: .8; }
@@ -82,14 +86,14 @@
       .loop-eye { transform-box: fill-box; transform-origin: center; animation: eye-loop 5.4s ease-in-out infinite; }
       .robot-caption { position: absolute; top: 22px; right: 8%; z-index: 1; color: rgba(17, 18, 15, .56); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
       @keyframes wander-loop {
-        0%, 8% { transform: translate(48px, 22px); }
-        20% { transform: translate(118px, 19px) rotate(1deg); }
-        34% { transform: translate(202px, 24px) rotate(-1deg); }
-        45%, 51% { transform: translate(266px, 20px); }
-        62% { transform: translate(223px, 25px) rotate(1deg); }
-        76% { transform: translate(137px, 19px) rotate(-1deg); }
-        89% { transform: translate(69px, 24px); }
-        100% { transform: translate(48px, 22px); }
+        0%, 8% { transform: translate(48px, 1px); }
+        20% { transform: translate(118px, -1px) rotate(1deg); }
+        34% { transform: translate(202px, 3px) rotate(-1deg); }
+        45%, 51% { transform: translate(266px, 0); }
+        62% { transform: translate(223px, 4px) rotate(1deg); }
+        76% { transform: translate(137px, -1px) rotate(-1deg); }
+        89% { transform: translate(69px, 3px); }
+        100% { transform: translate(48px, 1px); }
       }
       @keyframes wheel-loop {
         to { transform: rotate(360deg); }
@@ -221,36 +225,44 @@
           </div>
           <div class="robot-stage" aria-hidden="true">
             <span class="robot-caption">field note / 001</span>
-            <svg class="robot-loop" viewBox="0 0 360 120" role="presentation">
+            <svg class="robot-loop" viewBox="0 0 360 130" role="presentation">
               <defs>
                 <g id="mini-robot">
-                  <ellipse class="loop-robot-shadow" cx="0" cy="58" rx="18" ry="3" />
-                  <rect class="loop-robot-base" x="-16" y="47" width="32" height="10" rx="5" />
+                  <ellipse class="loop-robot-shadow" cx="0" cy="111" rx="36" ry="3" />
+                  <rect class="loop-robot-base" x="-34" y="88" width="68" height="21" rx="10" />
+                  <rect class="loop-robot-platform" x="-28" y="84" width="56" height="9" rx="4" />
                   <g class="loop-wheel">
-                    <circle class="loop-robot-wheel" cx="-8" cy="57" r="2.8" />
-                    <path d="M-8 55v4M-10 57h4" stroke="#eef1ea" stroke-width=".7" />
+                    <circle class="loop-robot-wheel" cx="-22" cy="109" r="5" />
+                    <path d="M-22 106v6M-25 109h6" stroke="#eef1ea" stroke-width="1" />
                   </g>
                   <g class="loop-wheel">
-                    <circle class="loop-robot-wheel" cx="8" cy="57" r="2.8" />
-                    <path d="M8 55v4M6 57h4" stroke="#eef1ea" stroke-width=".7" />
+                    <circle class="loop-robot-wheel" cx="22" cy="109" r="5" />
+                    <path d="M22 106v6M19 109h6" stroke="#eef1ea" stroke-width="1" />
                   </g>
-                  <rect class="loop-robot-column" x="-3" y="34" width="6" height="15" rx="3" />
-                  <rect class="loop-robot-body" x="-14" y="23" width="28" height="22" rx="9" />
-                  <rect class="loop-robot-head" x="-13" y="0" width="26" height="23" rx="10" />
-                  <rect class="loop-robot-face" x="-10.5" y="2.5" width="21" height="18" rx="7.5" />
-                  <ellipse class="loop-eye" cx="-4" cy="11.5" rx="1.6" ry="2.8" />
-                  <ellipse class="loop-eye" cx="4" cy="11.5" rx="1.6" ry="2.8" />
-                  <path class="loop-arm" d="M-12 30c-7 1-10 6-11 12" />
-                  <circle class="loop-hand" cx="-23" cy="43" r="2.8" />
-                  <path class="loop-arm" d="M12 30c7 1 10 6 11 12" />
-                  <circle class="loop-hand" cx="23" cy="43" r="2.8" />
+                  <rect class="loop-robot-column" x="-9" y="58" width="18" height="29" rx="4" />
+                  <path d="M-3 61v23M3 61v23" stroke="#355746" stroke-width="2.2" />
+                  <rect class="loop-robot-body" x="-27" y="31" width="54" height="34" rx="13" />
+                  <path d="M-26 53h52v11H-14c-7 0-12-5-12-11Z" fill="#9abf8c" stroke="none" />
+                  <rect class="loop-robot-shoulder" x="-42" y="35" width="17" height="14" rx="7" />
+                  <rect class="loop-robot-shoulder" x="25" y="35" width="17" height="14" rx="7" />
+                  <rect class="loop-robot-limb" x="-40" y="47" width="13" height="35" rx="4" />
+                  <rect class="loop-robot-limb" x="27" y="47" width="13" height="35" rx="4" />
+                  <circle class="loop-robot-joint" cx="-33.5" cy="84" r="5" />
+                  <circle class="loop-robot-joint" cx="33.5" cy="84" r="5" />
+                  <rect class="loop-robot-palm" x="-38" y="87" width="9" height="9" rx="3" />
+                  <rect class="loop-robot-palm" x="29" y="87" width="9" height="9" rx="3" />
+                  <rect class="loop-robot-column" x="-5" y="25" width="10" height="9" rx="4" />
+                  <rect class="loop-robot-head" x="-30" y="0" width="60" height="28" rx="13" />
+                  <rect class="loop-robot-face" x="-24" y="4" width="48" height="20" rx="9" />
+                  <ellipse class="loop-eye" cx="-8" cy="14" rx="2.2" ry="3.8" />
+                  <ellipse class="loop-eye" cx="8" cy="14" rx="2.2" ry="3.8" />
                 </g>
               </defs>
 
-              <path class="loop-route" d="M24 83 C93 76 265 89 336 82" />
-              <path class="loop-floor" d="M18 86 C94 80 263 91 342 85" />
-              <circle class="loop-marker" cx="30" cy="83" r="3" />
-              <circle class="loop-marker" cx="330" cy="82" r="3" />
+              <path class="loop-route" d="M24 108 C93 101 265 114 336 107" />
+              <path class="loop-floor" d="M18 111 C94 105 263 116 342 110" />
+              <circle class="loop-marker" cx="30" cy="107" r="3" />
+              <circle class="loop-marker" cx="330" cy="106" r="3" />
 
               <g class="loop-wander">
                 <use href="#mini-robot" />
