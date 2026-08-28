@@ -59,6 +59,52 @@
       h2 { max-width: 780px; margin: 0; font-size: clamp(34px, 5vw, 76px); line-height: .98; font-weight: 510; letter-spacing: 0; }
       .section-lede { max-width: 540px; margin: 24px 0 0; color: var(--muted-light); font-size: 17px; line-height: 1.6; }
 
+      .motion-section { padding: clamp(48px, 7vw, 94px) clamp(24px, 6vw, 96px) clamp(42px, 6vw, 78px); background: #dce5e3; }
+      .motion-heading { display: grid; grid-template-columns: minmax(190px, .55fr) minmax(0, 1fr); gap: 42px; align-items: start; }
+      .motion-heading h2 { max-width: 680px; }
+      .motion-heading p { max-width: 480px; margin: 24px 0 0; color: rgba(17, 18, 15, .68); font-size: 16px; line-height: 1.6; }
+      .robot-stage { position: relative; min-height: 230px; margin-top: 46px; overflow: hidden; border-top: 1px solid var(--line-light); border-bottom: 1px solid var(--line-light); background: #eef1ea; }
+      .robot-stage::before, .robot-stage::after { content: ""; position: absolute; left: 8%; right: 8%; height: 1px; background: rgba(17, 18, 15, .1); }
+      .robot-stage::before { top: 28%; }
+      .robot-stage::after { top: 48%; left: 16%; right: 16%; }
+      .robot-track { position: absolute; right: 7%; bottom: 37px; left: 7%; height: 2px; background: var(--ink); }
+      .robot-track::before, .robot-track::after { content: ""; position: absolute; top: -5px; width: 12px; height: 12px; border: 1px solid var(--ink); border-radius: 50%; background: #eef1ea; }
+      .robot-track::before { left: 0; }
+      .robot-track::after { right: 0; }
+      .robot-runner { position: absolute; bottom: 38px; left: 7%; z-index: 2; width: 104px; animation: robot-travel 8s cubic-bezier(.65, 0, .35, 1) infinite; }
+      .robot-runner svg { display: block; width: 100%; height: auto; overflow: visible; animation: robot-bob 560ms ease-in-out infinite alternate; transform-origin: 50% 100%; }
+      .robot-wheel { transform-box: fill-box; transform-origin: center; animation: robot-wheel-turn 560ms linear infinite; }
+      .robot-eye { transform-box: fill-box; transform-origin: center; animation: robot-blink 4.8s ease-in-out infinite; }
+      .robot-arm { transform-box: fill-box; transform-origin: 50% 0; animation: robot-arm-swing 560ms ease-in-out infinite alternate; }
+      .robot-package { position: absolute; right: 9%; bottom: 39px; width: 48px; height: 42px; border: 2px solid var(--ink); background: var(--coral); transform: rotate(-4deg); animation: package-pulse 2.4s ease-in-out infinite; }
+      .robot-package::before { content: ""; position: absolute; top: 12px; right: -7px; left: -7px; height: 2px; background: var(--ink); transform: rotate(25deg); }
+      .robot-package::after { content: "01"; position: absolute; right: 6px; bottom: 5px; color: var(--white); font-family: var(--mono); font-size: 9px; letter-spacing: .08em; }
+      .robot-caption { position: absolute; top: 22px; right: 8%; color: rgba(17, 18, 15, .56); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+      @keyframes robot-travel {
+        0%, 10% { left: 7%; }
+        68%, 78% { left: calc(93% - 104px); }
+        100% { left: 7%; }
+      }
+      @keyframes robot-bob {
+        from { transform: translateY(0) rotate(-1deg); }
+        to { transform: translateY(-5px) rotate(1deg); }
+      }
+      @keyframes robot-wheel-turn {
+        to { transform: rotate(360deg); }
+      }
+      @keyframes robot-blink {
+        0%, 44%, 48%, 100% { transform: scaleY(1); }
+        46%, 47% { transform: scaleY(.12); }
+      }
+      @keyframes robot-arm-swing {
+        from { transform: rotate(-7deg); }
+        to { transform: rotate(9deg); }
+      }
+      @keyframes package-pulse {
+        0%, 70%, 100% { transform: rotate(-4deg) translateY(0); }
+        78% { transform: rotate(-4deg) translateY(-4px); }
+      }
+
       .research-section { background: var(--blue); color: var(--white); }
       .research-section .section-heading { border-color: var(--line-dark); }
       .research-section .section-kicker { color: var(--yellow); }
@@ -113,6 +159,9 @@
         .hero-photo, .hero-photo img { min-height: 480px; }
         .hero-photo { border-left: 0; border-top: 1px solid var(--line-dark); }
         .section-heading { display: block; }
+        .motion-heading { display: block; }
+        .motion-heading p { margin-top: 20px; }
+        .robot-stage { min-height: 210px; }
         .research-list { display: block; }
         .research-item, .research-item + .research-item { min-height: 0; padding: 24px 0; border-right: 0; border-bottom: 1px solid var(--line-dark); }
         .research-item:last-child { border-bottom: 0; }
@@ -129,7 +178,7 @@
 
       @media (prefers-reduced-motion: reduce) {
         html { scroll-behavior: auto; }
-        *, *::before, *::after { transition-duration: 0.01ms !important; }
+        *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
       }
     </style>
   </head>
@@ -164,6 +213,50 @@
             <div>
               <h2 id="profile-title">Research starts with a good question.</h2>
               <p class="section-lede">I am an Honours student building a research profile around learning, perception, and physical interaction.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="motion-section" aria-labelledby="motion-title">
+          <div class="motion-heading">
+            <p class="section-kicker">A small study / In motion</p>
+            <div>
+              <h2 id="motion-title">Ideas should move.</h2>
+              <p>A tiny visual study for the space between perception, control, and action.</p>
+            </div>
+          </div>
+          <div class="robot-stage" aria-hidden="true">
+            <span class="robot-caption">field note / 001</span>
+            <div class="robot-track"></div>
+            <div class="robot-package"></div>
+            <div class="robot-runner">
+              <svg viewBox="0 0 150 112" role="presentation">
+                <g fill="none" stroke="#11120f" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M75 11V4" stroke-width="3" />
+                  <circle cx="75" cy="3" r="3" fill="#cdb98b" stroke-width="2" />
+                  <rect x="45" y="13" width="60" height="43" rx="14" fill="#e8f2f7" stroke-width="3" />
+                  <rect x="51" y="20" width="48" height="28" rx="9" fill="#a8c4d2" stroke-width="2" />
+                  <circle class="robot-eye" cx="66" cy="34" r="4" fill="#29415f" stroke-width="1.5" />
+                  <circle class="robot-eye" cx="84" cy="34" r="4" fill="#29415f" stroke-width="1.5" />
+                  <path d="M70 42h10" stroke-width="2" />
+                  <path d="M45 62c0-5 4-8 9-8h42c5 0 9 3 9 8v25c0 6-4 10-10 10H55c-6 0-10-4-10-10Z" fill="#c7dbe8" stroke-width="3" />
+                  <path d="M59 67h32" stroke="#5e8ba1" stroke-width="3" />
+                  <circle cx="61" cy="79" r="4" fill="#cdb98b" stroke-width="1.5" />
+                  <circle cx="89" cy="79" r="4" fill="#b77761" stroke-width="1.5" />
+                  <g class="robot-arm">
+                    <path d="M45 66 31 77l-6-7" stroke-width="4" />
+                    <circle cx="24" cy="70" r="3" fill="#cdb98b" stroke-width="1.5" />
+                  </g>
+                  <g class="robot-arm">
+                    <path d="M105 66 119 77l7-8" stroke-width="4" />
+                    <circle cx="127" cy="69" r="3" fill="#cdb98b" stroke-width="1.5" />
+                  </g>
+                  <path d="M58 97v7M92 97v7" stroke-width="4" />
+                  <circle class="robot-wheel" cx="57" cy="105" r="6" fill="#29415f" stroke-width="2" />
+                  <circle class="robot-wheel" cx="93" cy="105" r="6" fill="#29415f" stroke-width="2" />
+                  <path d="M57 102v6M54 105h6M93 102v6M90 105h6" stroke="#e8f2f7" stroke-width="1.5" />
+                </g>
+              </svg>
             </div>
           </div>
         </section>
