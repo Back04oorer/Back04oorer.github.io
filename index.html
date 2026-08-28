@@ -66,52 +66,37 @@
       .robot-stage { position: relative; min-height: 230px; margin-top: 46px; overflow: hidden; border-top: 1px solid var(--line-light); border-bottom: 1px solid var(--line-light); background: #eef1ea; }
       .robot-stage::before { content: ""; position: absolute; left: 8%; right: 8%; top: 28%; height: 1px; background: rgba(17, 18, 15, .1); }
       .robot-loop { position: absolute; inset: 16px 0 24px; width: 100%; height: calc(100% - 40px); overflow: visible; }
-      .loop-floor { fill: none; stroke: rgba(53, 87, 70, .22); stroke-width: 1.2; stroke-linecap: round; }
-      .loop-table { fill: #ffffff; stroke: rgba(53, 87, 70, .28); stroke-width: 1; }
-      .loop-table path { fill: none; stroke: rgba(53, 87, 70, .28); stroke-width: 1.3; stroke-linecap: round; }
+      .loop-floor { fill: none; stroke: rgba(53, 87, 70, .26); stroke-width: 1.2; stroke-linecap: round; }
+      .loop-route { fill: none; stroke: rgba(53, 87, 70, .14); stroke-width: .8; stroke-dasharray: 2 5; stroke-linecap: round; }
+      .loop-marker { fill: #9abf8c; stroke: #355746; stroke-width: .8; }
       .loop-robot-shadow { fill: rgba(17, 18, 15, .12); }
       .loop-robot-base, .loop-robot-head { fill: currentColor; stroke: rgba(17, 18, 15, .28); stroke-width: .8; }
       .loop-robot-wheel { fill: #355746; }
       .loop-robot-column { fill: #f5efe5; stroke: rgba(53, 87, 70, .35); stroke-width: .8; }
       .loop-robot-body, .loop-robot-face { fill: #ffffff; stroke: rgba(53, 87, 70, .35); stroke-width: .8; }
       .loop-robot-eye { fill: #11120f; }
-      .loop-green-courier { color: #9abf8c; animation: courier-loop 12s linear infinite; }
-      .loop-green-stack { animation: stack-loop 12s linear infinite; }
-      .loop-helper { color: #b8cfd8; animation: helper-loop 12s ease-in-out infinite; }
-      .loop-helper-arm { transform-box: fill-box; transform-origin: 0 50%; animation: helper-arm-loop 12s ease-in-out infinite; }
-      .loop-cloth { fill: #b8d4bf; stroke: rgba(53, 87, 70, .35); stroke-width: .8; transform-origin: 180px 63px; animation: cloth-loop 12s ease-in-out infinite; }
-      .loop-stack-piece { stroke: rgba(53, 87, 70, .3); stroke-width: .7; }
+      .loop-arm { fill: none; stroke: #ffffff; stroke-width: 4.4; stroke-linecap: round; stroke-linejoin: round; }
+      .loop-hand { fill: #9abf8c; stroke: rgba(17, 18, 15, .28); stroke-width: .8; }
+      .loop-wander { color: #9abf8c; animation: wander-loop 16s cubic-bezier(.37, .08, .63, .92) infinite; }
+      .loop-wheel { transform-box: fill-box; transform-origin: center; animation: wheel-loop 720ms linear infinite; }
+      .loop-eye { transform-box: fill-box; transform-origin: center; animation: eye-loop 5.4s ease-in-out infinite; }
       .robot-caption { position: absolute; top: 22px; right: 8%; z-index: 1; color: rgba(17, 18, 15, .56); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
-      @keyframes courier-loop {
-        0%, 8% { opacity: 0; transform: translate(318px, 20px) translateX(68px); }
-        12%, 25% { opacity: 1; transform: translate(318px, 20px) translateX(42px); }
-        31%, 38% { opacity: 0; transform: translate(318px, 20px) translateX(-74px); }
-        84%, 92% { opacity: 0; transform: translate(318px, 20px) translateX(68px); }
-        96%, 100% { opacity: 0; transform: translate(318px, 20px) translateX(68px); }
+      @keyframes wander-loop {
+        0%, 8% { transform: translate(48px, 22px); }
+        20% { transform: translate(118px, 19px) rotate(1deg); }
+        34% { transform: translate(202px, 24px) rotate(-1deg); }
+        45%, 51% { transform: translate(266px, 20px); }
+        62% { transform: translate(223px, 25px) rotate(1deg); }
+        76% { transform: translate(137px, 19px) rotate(-1deg); }
+        89% { transform: translate(69px, 24px); }
+        100% { transform: translate(48px, 22px); }
       }
-      @keyframes stack-loop {
-        0%, 22% { opacity: 0; transform: translate(207px, 0); }
-        25%, 31% { opacity: 1; transform: translate(207px, 0); }
-        34%, 100% { opacity: 0; transform: translate(207px, 0); }
+      @keyframes wheel-loop {
+        to { transform: rotate(360deg); }
       }
-      @keyframes helper-loop {
-        0%, 22%, 34%, 100% { transform: translate(180px, 8px); }
-        40% { transform: translate(178px, 9px) rotate(-1deg); }
-        48%, 64% { transform: translate(180px, 7px); }
-        72%, 88% { transform: translate(180px, 9px); }
-      }
-      @keyframes helper-arm-loop {
-        0%, 24% { transform: rotate(-18deg); }
-        31%, 40% { transform: rotate(22deg); }
-        48%, 62% { transform: rotate(-4deg); }
-        70%, 100% { transform: rotate(-18deg); }
-      }
-      @keyframes cloth-loop {
-        0%, 34% { opacity: 0; transform: translateX(2px) scaleX(.55) rotate(-1deg); }
-        38% { opacity: 1; transform: translateX(1px) scaleX(1) rotate(0); }
-        52% { opacity: 1; transform: translateX(12px) scaleX(.72) rotate(.5deg); }
-        66% { opacity: 1; transform: translateX(28px) scaleX(.42); }
-        70%, 100% { opacity: 0; transform: translateX(28px) scaleX(.42); }
+      @keyframes eye-loop {
+        0%, 44%, 48%, 100% { transform: scaleY(1); }
+        46%, 47% { transform: scaleY(.12); }
       }
 
       .research-section { background: var(--blue); color: var(--white); }
@@ -241,48 +226,34 @@
                 <g id="mini-robot">
                   <ellipse class="loop-robot-shadow" cx="0" cy="58" rx="18" ry="3" />
                   <rect class="loop-robot-base" x="-16" y="47" width="32" height="10" rx="5" />
-                  <circle class="loop-robot-wheel" cx="-8" cy="57" r="2.8" />
-                  <circle class="loop-robot-wheel" cx="8" cy="57" r="2.8" />
+                  <g class="loop-wheel">
+                    <circle class="loop-robot-wheel" cx="-8" cy="57" r="2.8" />
+                    <path d="M-8 55v4M-10 57h4" stroke="#eef1ea" stroke-width=".7" />
+                  </g>
+                  <g class="loop-wheel">
+                    <circle class="loop-robot-wheel" cx="8" cy="57" r="2.8" />
+                    <path d="M8 55v4M6 57h4" stroke="#eef1ea" stroke-width=".7" />
+                  </g>
                   <rect class="loop-robot-column" x="-3" y="34" width="6" height="15" rx="3" />
                   <rect class="loop-robot-body" x="-14" y="23" width="28" height="22" rx="9" />
                   <rect class="loop-robot-head" x="-13" y="0" width="26" height="23" rx="10" />
                   <rect class="loop-robot-face" x="-10.5" y="2.5" width="21" height="18" rx="7.5" />
-                  <ellipse class="loop-robot-eye" cx="-4" cy="11.5" rx="1.6" ry="2.8" />
-                  <ellipse class="loop-robot-eye" cx="4" cy="11.5" rx="1.6" ry="2.8" />
+                  <ellipse class="loop-eye" cx="-4" cy="11.5" rx="1.6" ry="2.8" />
+                  <ellipse class="loop-eye" cx="4" cy="11.5" rx="1.6" ry="2.8" />
+                  <path class="loop-arm" d="M-12 30c-7 1-10 6-11 12" />
+                  <circle class="loop-hand" cx="-23" cy="43" r="2.8" />
+                  <path class="loop-arm" d="M12 30c7 1 10 6 11 12" />
+                  <circle class="loop-hand" cx="23" cy="43" r="2.8" />
                 </g>
               </defs>
 
-              <path class="loop-floor" d="M18 83 C94 79 263 79 342 83" />
-              <g class="loop-table">
-                <rect x="93" y="64" width="174" height="8" rx="4" />
-                <path d="M108 72v12M252 72v12" />
-              </g>
+              <path class="loop-route" d="M24 83 C93 76 265 89 336 82" />
+              <path class="loop-floor" d="M18 86 C94 80 263 91 342 85" />
+              <circle class="loop-marker" cx="30" cy="83" r="3" />
+              <circle class="loop-marker" cx="330" cy="82" r="3" />
 
-              <g class="loop-helper" transform="translate(180 9)">
+              <g class="loop-wander">
                 <use href="#mini-robot" />
-                <path class="loop-helper-arm" d="M-12 30c-13 2-17 8-24 16" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" />
-                <path class="loop-helper-arm" d="M12 30c13 2 17 8 24 16" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" />
-              </g>
-
-              <path class="loop-cloth" d="M144 62Q180 51 216 62l-6 7h-60Z" />
-              <path d="M162 60l18 8 18-8" fill="none" stroke="rgba(53,87,70,.35)" stroke-width=".8" />
-
-              <g class="loop-stack" transform="translate(207 0)">
-                <rect class="loop-stack-piece" x="-18" y="58" width="40" height="8" rx="3" fill="#f5efe5" />
-                <rect class="loop-stack-piece" x="-15" y="51" width="36" height="8" rx="3" fill="#9abf8c" />
-                <rect class="loop-stack-piece" x="-19" y="44" width="38" height="8" rx="3" fill="#c6ddc8" />
-              </g>
-
-              <rect class="loop-table" x="93" y="64" width="174" height="8" rx="4" />
-
-              <g class="loop-green-courier" transform="translate(318 20)">
-                <use href="#mini-robot" />
-                <g class="loop-green-stack">
-                  <rect class="loop-stack-piece" x="-49" y="39" width="40" height="8" rx="3" fill="#f5efe5" />
-                  <rect class="loop-stack-piece" x="-46" y="32" width="36" height="8" rx="3" fill="#9abf8c" />
-                  <rect class="loop-stack-piece" x="-50" y="25" width="38" height="8" rx="3" fill="#c6ddc8" />
-                </g>
-                <path d="M-12 31c-10 0-16 6-21 12" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" />
               </g>
             </svg>
             </div>
