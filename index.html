@@ -3,189 +3,249 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Back04oorer — an independent maker building thoughtful digital work." />
-    <meta name="theme-color" content="#171717" />
-    <title>Back04oorer — Independent Maker</title>
+    <meta name="description" content="Mingyuan Ba - Honours student and researcher working on robot learning and visuomotor imitation." />
+    <meta name="theme-color" content="#11120f" />
+    <title>Mingyuan Ba - Researcher</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wdth,wght@6..144,75..125,400..800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <style>
       :root {
-        --ink: #171717;
-        --paper: #eeeae3;
-        --muted: #77736c;
-        --line: rgba(23, 23, 23, 0.16);
-        --signal: #d94b31;
-        --blue: #3155c8;
+        --ink: #11120f;
+        --white: #ffffff;
+        --cream: #f5efe5;
+        --blue: #29415f;
+        --coral: #b77761;
+        --yellow: #cdb98b;
+        --green: #355746;
+        --line-light: rgba(17, 18, 15, 0.18);
+        --line-dark: rgba(255, 255, 255, 0.2);
+        --muted-light: rgba(17, 18, 15, 0.68);
+        --muted-dark: rgba(255, 255, 255, 0.72);
+        --sans: "Google Sans Flex", "Helvetica Neue", Arial, sans-serif;
+        --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
       }
 
       * { box-sizing: border-box; }
       html { scroll-behavior: smooth; }
-      body {
-        margin: 0;
-        color: var(--ink);
-        background: var(--paper);
-        font-family: "Manrope", system-ui, sans-serif;
-      }
-
+      body { margin: 0; min-width: 320px; color: var(--ink); background: var(--ink); font-family: var(--sans); }
       a { color: inherit; text-decoration: none; }
-      a:focus-visible, button:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+      a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 5px; }
+      ::selection { color: var(--white); background: var(--blue); }
 
-      .site-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: min(1180px, calc(100% - 48px));
-        margin: 0 auto;
-        padding: 26px 0;
-        border-bottom: 1px solid var(--line);
-      }
+      .site { width: min(1600px, calc(100% - 40px)); margin: 20px auto; overflow: hidden; background: var(--cream); }
+      .site-header { display: flex; align-items: center; justify-content: space-between; min-height: 68px; padding: 0 clamp(24px, 4vw, 64px); border-bottom: 1px solid var(--line-light); }
+      .brand { font-size: 15px; font-weight: 650; letter-spacing: .02em; }
+      .brand span { color: var(--coral); }
+      .header-meta, .eyebrow, .section-kicker, .publication-meta, .publication-id, .footer-meta { font-family: var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+      .header-meta { color: var(--muted-light); font-size: 11px; }
+      nav { display: flex; gap: clamp(18px, 3vw, 44px); margin-left: auto; margin-right: clamp(24px, 4vw, 64px); font-size: 13px; }
+      nav a { color: var(--muted-light); transition: color 180ms ease; }
+      nav a:hover { color: var(--coral); }
 
-      .wordmark, .eyebrow, .meta, .status, .footer-note {
-        font-family: "DM Mono", ui-monospace, monospace;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-      }
+      .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, .88fr); min-height: 650px; background: var(--ink); color: var(--white); }
+      .hero-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(46px, 7vw, 112px) clamp(24px, 6vw, 96px); }
+      .eyebrow { margin: 0 0 24px; color: var(--yellow); font-size: 11px; }
+      h1 { max-width: 780px; margin: 0; font-size: clamp(56px, 8.4vw, 142px); line-height: .91; letter-spacing: 0; font-weight: 510; }
+      .hero-description { max-width: 560px; margin: 40px 0 0; color: var(--muted-dark); font-size: clamp(17px, 1.7vw, 23px); line-height: 1.5; }
+      .hero-link { display: inline-flex; align-items: center; gap: 12px; width: fit-content; margin-top: 38px; padding-bottom: 9px; border-bottom: 1px solid var(--yellow); color: var(--white); font-size: 13px; font-weight: 650; }
+      .hero-link::after, .text-link::after { content: "↗"; color: var(--yellow); font-size: 18px; }
+      .hero-photo { min-height: 650px; margin: 0; border-left: 1px solid var(--line-dark); background: #303b3a; }
+      .hero-photo img { display: block; width: 100%; height: 100%; min-height: 650px; object-fit: cover; object-position: center; filter: saturate(.84); }
 
-      .wordmark { font-size: 13px; font-weight: 500; }
-      .wordmark span { color: var(--signal); }
-      nav { display: flex; gap: 28px; font-size: 13px; color: #5f5b54; }
-      nav a { transition: color 160ms ease; }
-      nav a:hover { color: var(--signal); }
+      .light-section { padding: clamp(56px, 8vw, 120px) clamp(24px, 6vw, 96px); background: var(--cream); }
+      .section-heading { display: grid; grid-template-columns: minmax(190px, .55fr) minmax(0, 1fr); gap: 42px; align-items: start; padding-bottom: 28px; border-bottom: 1px solid var(--line-light); }
+      .section-kicker { margin: 0; color: var(--coral); font-size: 11px; }
+      h2 { max-width: 780px; margin: 0; font-size: clamp(34px, 5vw, 76px); line-height: .98; font-weight: 510; letter-spacing: 0; }
+      .section-lede { max-width: 540px; margin: 24px 0 0; color: var(--muted-light); font-size: 17px; line-height: 1.6; }
 
-      main { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+      .research-section { background: var(--blue); color: var(--white); }
+      .research-section .section-heading { border-color: var(--line-dark); }
+      .research-section .section-kicker { color: var(--yellow); }
+      .research-section .section-lede { color: var(--muted-dark); }
+      .research-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 48px; border-top: 1px solid var(--line-dark); }
+      .research-item { min-height: 240px; padding: 24px 28px 24px 0; border-right: 1px solid var(--line-dark); }
+      .research-item + .research-item { padding-left: 28px; }
+      .research-item:last-child { border-right: 0; }
+      .research-number { display: block; margin-bottom: 56px; color: var(--yellow); font-family: var(--mono); font-size: 12px; }
+      .research-item h3 { margin: 0 0 14px; font-size: 25px; line-height: 1.05; font-weight: 510; }
+      .research-item p { max-width: 310px; margin: 0; color: var(--muted-dark); font-size: 14px; line-height: 1.6; }
 
-      .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
-        gap: clamp(48px, 8vw, 128px);
-        align-items: end;
-        min-height: 635px;
-        padding: 72px 0 88px;
-      }
+      .publication-section { padding: 0 clamp(24px, 6vw, 96px) clamp(64px, 9vw, 130px); background: var(--cream); }
+      .publication-top { display: flex; justify-content: space-between; align-items: end; gap: 24px; padding: clamp(54px, 7vw, 94px) 0 28px; border-bottom: 1px solid var(--line-light); }
+      .publication-top h2 { margin-top: 16px; }
+      .publication-count { margin: 0; color: var(--muted-light); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+      .publication-record { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 22px; align-items: start; padding: 30px 0; border-bottom: 1px solid var(--line-light); }
+      .publication-id { color: var(--coral); font-size: 11px; }
+      .publication-meta { display: block; margin-bottom: 10px; color: var(--green); font-size: 11px; }
+      .publication-title { max-width: 880px; margin: 0; font-size: clamp(22px, 3vw, 38px); line-height: 1.08; font-weight: 510; }
+      .publication-authors { max-width: 800px; margin: 14px 0 0; color: var(--muted-light); font-size: 14px; line-height: 1.55; }
+      .publication-authors strong { color: var(--ink); font-weight: 650; }
+      .publication-abstract { max-width: 800px; margin: 16px 0 0; color: var(--muted-light); font-size: 14px; line-height: 1.6; }
+      .publication-link { display: inline-flex; align-items: center; gap: 8px; color: var(--coral); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; white-space: nowrap; }
+      .publication-link::after { content: "↗"; font-family: var(--sans); font-size: 18px; }
 
-      .eyebrow { margin: 0 0 24px; color: var(--signal); font-size: 11px; }
-      h1 {
-        max-width: 650px;
-        margin: 0;
-        font-size: clamp(50px, 7vw, 104px);
-        line-height: 0.94;
-        letter-spacing: 0;
-        font-weight: 800;
-      }
+      .profile-section { display: grid; grid-template-columns: minmax(0, .9fr) minmax(280px, .7fr); gap: clamp(48px, 10vw, 170px); padding: clamp(56px, 8vw, 120px) clamp(24px, 6vw, 96px); background: var(--green); color: var(--white); }
+      .profile-section h2 { color: var(--white); }
+      .profile-copy { max-width: 540px; color: var(--muted-dark); font-size: 16px; line-height: 1.65; }
+      .profile-copy p { margin: 0 0 18px; }
+      .profile-details { align-self: end; border-top: 1px solid var(--line-dark); }
+      .detail-row { display: flex; justify-content: space-between; gap: 24px; padding: 14px 0; border-bottom: 1px solid var(--line-dark); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; }
+      .detail-row span:first-child { color: var(--yellow); }
+      .detail-row span:last-child { text-align: right; }
 
-      .hero-copy { max-width: 430px; margin: 36px 0 0; font-size: 17px; line-height: 1.65; color: #5f5b54; }
-      .hero-link { display: inline-flex; align-items: center; gap: 12px; margin-top: 32px; padding-bottom: 8px; border-bottom: 1px solid var(--ink); font-size: 13px; font-weight: 700; }
-      .hero-link::after { content: "↗"; color: var(--signal); font-size: 18px; }
+      .contact-section { display: flex; justify-content: space-between; align-items: end; gap: 48px; padding: clamp(56px, 8vw, 120px) clamp(24px, 6vw, 96px); background: var(--cream); }
+      .contact-section h2 { max-width: 680px; }
+      .contact-copy { max-width: 330px; color: var(--muted-light); font-size: 15px; line-height: 1.6; }
+      .text-link { display: inline-flex; align-items: center; gap: 10px; margin-top: 18px; color: var(--coral); font-size: 14px; font-weight: 650; }
+      .site-footer { display: flex; justify-content: space-between; gap: 24px; padding: 20px clamp(24px, 6vw, 96px) 24px; border-top: 1px solid var(--line-light); background: var(--cream); color: var(--muted-light); }
+      .footer-meta { margin: 0; font-size: 10px; }
 
-      .hero-visual {
-        position: relative;
-        min-height: 430px;
-        overflow: hidden;
-        background: #252525 url("assets/hero.png") center / cover no-repeat;
-      }
-      .hero-visual::after { content: ""; position: absolute; inset: 0; border: 1px solid rgba(255, 255, 255, 0.2); pointer-events: none; }
-      .visual-label { position: absolute; right: 16px; bottom: 14px; z-index: 1; color: rgba(255,255,255,0.76); font-size: 10px; }
-
-      .section { padding: 34px 0 110px; border-top: 1px solid var(--line); }
-      .section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 32px; }
-      h2 { margin: 0; font-size: 28px; letter-spacing: 0; }
-      .section-intro { max-width: 380px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; text-align: right; }
-
-      .work-list { border-top: 1px solid var(--line); }
-      .work-item { display: grid; grid-template-columns: 100px 1fr auto; gap: 24px; align-items: center; padding: 24px 0; border-bottom: 1px solid var(--line); }
-      .work-item:hover .work-title { color: var(--signal); }
-      .meta { color: var(--muted); font-size: 10px; }
-      .work-title { margin: 0; font-size: 22px; transition: color 160ms ease; }
-      .work-description { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
-      .work-arrow { font-size: 22px; color: var(--signal); }
-
-      .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; padding-bottom: 100px; }
-      .contact h2 { max-width: 440px; font-size: clamp(34px, 5vw, 64px); line-height: 1; }
-      .contact p { max-width: 360px; margin: 0 0 18px; color: var(--muted); font-size: 14px; line-height: 1.6; }
-      .contact a { color: var(--signal); font-size: 15px; font-weight: 700; }
-
-      footer { display: flex; justify-content: space-between; gap: 24px; padding: 18px 0 28px; border-top: 1px solid var(--line); color: var(--muted); }
-      .footer-note { margin: 0; font-size: 10px; }
-
-      @media (max-width: 760px) {
-        .site-header, main { width: min(100% - 32px, 560px); }
-        .site-header { padding: 20px 0; }
-        nav { gap: 16px; }
-        .hero { display: flex; flex-direction: column; align-items: stretch; min-height: auto; padding: 66px 0 72px; gap: 44px; }
-        h1 { font-size: clamp(52px, 16vw, 88px); }
-        .hero-visual { min-height: 340px; }
-        .section { padding-bottom: 74px; }
+      @media (max-width: 800px) {
+        .site { width: 100%; margin: 0; }
+        .site-header { min-height: 64px; }
+        .header-meta { display: none; }
+        nav { margin-right: 0; }
+        .hero { display: flex; flex-direction: column; }
+        .hero-copy { min-height: 560px; }
+        .hero-photo, .hero-photo img { min-height: 480px; }
+        .hero-photo { border-left: 0; border-top: 1px solid var(--line-dark); }
         .section-heading { display: block; }
-        .section-intro { margin-top: 12px; text-align: left; }
-        .work-item { grid-template-columns: 56px 1fr auto; gap: 14px; }
-        .work-title { font-size: 17px; }
-        .work-description { font-size: 12px; line-height: 1.45; }
-        .contact { display: block; padding-bottom: 74px; }
-        .contact p { margin-top: 24px; }
-        footer { display: block; }
-        footer .footer-note + .footer-note { margin-top: 10px; }
+        .research-list { display: block; }
+        .research-item, .research-item + .research-item { min-height: 0; padding: 24px 0; border-right: 0; border-bottom: 1px solid var(--line-dark); }
+        .research-item:last-child { border-bottom: 0; }
+        .research-number { margin-bottom: 28px; }
+        .publication-top { display: block; }
+        .publication-count { margin-top: 24px; }
+        .publication-record { grid-template-columns: 38px minmax(0, 1fr); gap: 14px; }
+        .publication-link { grid-column: 2; }
+        .profile-section { display: block; }
+        .profile-details { margin-top: 48px; }
+        .contact-section { display: block; }
+        .contact-copy { margin-top: 28px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { transition-duration: 0.01ms !important; }
       }
     </style>
   </head>
   <body>
-    <header class="site-header">
-      <a class="wordmark" href="#top">Back<span>04</span>oorer</a>
-      <nav aria-label="Primary navigation">
-        <a href="#work">Work</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+    <div class="site">
+      <header class="site-header">
+        <a class="brand" href="#about">Mingyuan <span>Ba</span></a>
+        <nav aria-label="Primary navigation">
+          <a href="#research">Research</a>
+          <a href="#publications">Publications</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <span class="header-meta">Honours / Research</span>
+      </header>
 
-    <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <div>
-          <p class="eyebrow">Independent maker / 2026</p>
-          <h1 id="hero-title">Making space for better ideas.</h1>
-          <p class="hero-copy">A small corner of the internet for experiments, interfaces, and the work that happens between the lines.</p>
-          <a class="hero-link" href="#work">Explore the work</a>
-        </div>
-        <div class="hero-visual" role="img" aria-label="Abstract cobalt blue and vermilion still life">
-          <span class="visual-label eyebrow">Field note 001</span>
-        </div>
-      </section>
+      <main>
+        <section class="hero" id="about" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow">Honours student / researcher</p>
+            <h1 id="hero-title">Learning robots to act together.</h1>
+            <p class="hero-description">I work on robot learning, visuomotor imitation, and the systems that help intelligent machines coordinate in the real world.</p>
+            <a class="hero-link" href="#publications">View publications</a>
+          </div>
+          <figure class="hero-photo">
+            <img src="assets/mingyuan-ba.webp" alt="Mingyuan Ba photographing beside the water" />
+          </figure>
+        </section>
 
-      <section class="section" id="work" aria-labelledby="work-title">
-        <div class="section-heading">
-          <h2 id="work-title">Selected directions</h2>
-          <p class="section-intro">A living index of things being made, studied, and left intentionally unfinished.</p>
-        </div>
-        <div class="work-list">
-          <a class="work-item" href="#contact">
-            <span class="meta">01 / Now</span>
-            <span><strong class="work-title">Digital places</strong><span class="work-description">Interfaces with a little more air in them.</span></span>
-            <span class="work-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a class="work-item" href="#contact">
-            <span class="meta">02 / Notes</span>
-            <span><strong class="work-title">Quiet systems</strong><span class="work-description">Small tools for thinking clearly and moving lightly.</span></span>
-            <span class="work-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a class="work-item" href="#contact">
-            <span class="meta">03 / Open</span>
-            <span><strong class="work-title">New collaborations</strong><span class="work-description">Thoughtful work with kind, curious people.</span></span>
-            <span class="work-arrow" aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </section>
+        <section class="light-section" id="profile" aria-labelledby="profile-title">
+          <div class="section-heading">
+            <p class="section-kicker">01 / About</p>
+            <div>
+              <h2 id="profile-title">Research starts with a good question.</h2>
+              <p class="section-lede">I am an Honours student building a research profile around learning, perception, and physical interaction.</p>
+            </div>
+          </div>
+        </section>
 
-      <section class="contact" id="contact" aria-labelledby="contact-title">
-        <h2 id="contact-title">Have a good question?</h2>
-        <div>
-          <p>This site is the first draft. The best things usually are. Send a note and let’s see where it goes.</p>
-          <a href="mailto:hello@mingyuanba.com">hello@mingyuanba.com</a>
-        </div>
-      </section>
-    </main>
+        <section class="light-section research-section" id="research" aria-labelledby="research-title">
+          <div class="section-heading">
+            <p class="section-kicker">02 / Research</p>
+            <div>
+              <h2 id="research-title">From demonstrations to capable physical behaviour.</h2>
+              <p class="section-lede">My current work explores how a single operator can teach coordinated behaviour to robots with more control channels than a human can directly manage.</p>
+            </div>
+          </div>
+          <div class="research-list">
+            <article class="research-item">
+              <span class="research-number">01</span>
+              <h3>Visuomotor imitation</h3>
+              <p>Learning policies from demonstrations that connect what a robot sees with how it acts.</p>
+            </article>
+            <article class="research-item">
+              <span class="research-number">02</span>
+              <h3>Multi-arm coordination</h3>
+              <p>Studying how separate manipulators can learn synchronized behaviour across a shared task.</p>
+            </article>
+            <article class="research-item">
+              <span class="research-number">03</span>
+              <h3>Real-world robotics</h3>
+              <p>Moving beyond controlled demonstrations toward systems that behave reliably in physical environments.</p>
+            </article>
+          </div>
+        </section>
 
-    <footer>
-      <p class="footer-note">© 2026 Back04oorer</p>
-      <p class="footer-note">mingyuanba.com</p>
-    </footer>
+        <section class="publication-section" id="publications" aria-labelledby="publications-title">
+          <header class="publication-top">
+            <div>
+              <p class="section-kicker">03 / Archive</p>
+              <h2 id="publications-title">Publications</h2>
+            </div>
+            <p class="publication-count">01 record / 2026</p>
+          </header>
+
+          <article class="publication-record">
+            <span class="publication-id">01</span>
+            <div>
+              <span class="publication-meta">CoRR / arXiv · 2026</span>
+              <h3 class="publication-title">Tri-Manual Visuomotor Imitation Learning of Robot Policies</h3>
+              <p class="publication-authors">James Zhao, <strong>Mingyuan Ba</strong>, Weiming Zhi</p>
+              <p class="publication-abstract">A tri-manual imitation learning system that lets one operator demonstrate behaviours for three robotic arms. The work introduces Dependency-Aware Tri-Arm Scheduling to retime demonstrations offline before training a synchronized policy.</p>
+            </div>
+            <a class="publication-link" href="https://arxiv.org/abs/2607.25731" target="_blank" rel="noreferrer">Read paper</a>
+          </article>
+        </section>
+
+        <section class="profile-section" id="cv" aria-labelledby="cv-title">
+          <div>
+            <p class="section-kicker">04 / Profile</p>
+            <h2 id="cv-title">A work in progress, made public.</h2>
+            <div class="profile-copy">
+              <p>This page is a living record of my research interests, publications, and the questions I am working through.</p>
+              <p>More projects, notes, and a full CV will be added as the work develops.</p>
+            </div>
+          </div>
+          <div class="profile-details" aria-label="Profile details">
+            <div class="detail-row"><span>Role</span><span>Honours student</span></div>
+            <div class="detail-row"><span>Focus</span><span>Robot learning</span></div>
+            <div class="detail-row"><span>Location</span><span>Sydney, Australia</span></div>
+          </div>
+        </section>
+
+        <section class="contact-section" id="contact" aria-labelledby="contact-title">
+          <div>
+            <p class="section-kicker">05 / Contact</p>
+            <h2 id="contact-title">Interested in the same questions?</h2>
+          </div>
+          <div class="contact-copy">
+            <p>I am always interested in thoughtful conversations about research, robotics, and new problems worth exploring.</p>
+            <a class="text-link" href="https://www.linkedin.com/in/mingyuan-ba-425258412/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p class="footer-meta">Mingyuan Ba / 2026</p>
+        <p class="footer-meta">mingyuanba.com</p>
+      </footer>
+    </div>
   </body>
 </html>
