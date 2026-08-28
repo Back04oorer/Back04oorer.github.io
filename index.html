@@ -81,6 +81,8 @@
       .publication-title { max-width: 880px; margin: 0; font-size: clamp(22px, 3vw, 38px); line-height: 1.08; font-weight: 510; }
       .publication-authors { max-width: 800px; margin: 14px 0 0; color: var(--muted-light); font-size: 14px; line-height: 1.55; }
       .publication-authors strong { color: var(--ink); font-weight: 650; }
+      .publication-notes { max-width: 800px; margin: 10px 0 0; color: var(--muted-light); font-family: var(--mono); font-size: 11px; line-height: 1.6; }
+      .publication-notes sup { color: var(--coral); font-size: 10px; }
       .publication-abstract { max-width: 800px; margin: 16px 0 0; color: var(--muted-light); font-size: 14px; line-height: 1.6; }
       .publication-link { display: inline-flex; align-items: center; gap: 8px; color: var(--coral); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; white-space: nowrap; }
       .publication-link::after { content: "↗"; font-family: var(--sans); font-size: 18px; }
@@ -207,7 +209,8 @@
             <div>
               <span class="publication-meta">CoRR / arXiv · 2026</span>
               <h3 class="publication-title">Tri-Manual Visuomotor Imitation Learning of Robot Policies</h3>
-              <p class="publication-authors">James Zhao, <strong>Mingyuan Ba</strong>, Weiming Zhi</p>
+              <p class="publication-authors">James Zhao<sup>†</sup>, <strong>Mingyuan Ba<sup>†</sup></strong>, and Weiming Zhi<sup>*</sup></p>
+              <p class="publication-notes"><sup>†</sup> Equal contribution. <sup>*</sup> Corresponding author.</p>
               <p class="publication-abstract">A tri-manual imitation learning system that lets one operator demonstrate behaviours for three robotic arms. The work introduces Dependency-Aware Tri-Arm Scheduling to retime demonstrations offline before training a synchronized policy.</p>
             </div>
             <a class="publication-link" href="https://arxiv.org/abs/2607.25731" target="_blank" rel="noreferrer">Read paper</a>
