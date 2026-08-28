@@ -62,7 +62,7 @@
       .motion-section { padding: clamp(48px, 7vw, 94px) clamp(24px, 6vw, 96px) clamp(42px, 6vw, 78px); background: #dce5e3; }
       .motion-heading { display: grid; grid-template-columns: minmax(190px, .55fr) minmax(0, 1fr); gap: 42px; align-items: start; }
       .motion-heading h2 { max-width: 680px; }
-      .motion-heading p { max-width: 480px; margin: 24px 0 0; color: rgba(17, 18, 15, .68); font-size: 16px; line-height: 1.6; }
+      .motion-heading > div > p { max-width: 480px; margin: 24px 0 0; color: rgba(17, 18, 15, .68); font-size: 16px; line-height: 1.6; }
       .robot-stage { position: relative; min-height: 230px; margin-top: 46px; overflow: hidden; border-top: 1px solid var(--line-light); border-bottom: 1px solid var(--line-light); background: #eef1ea; }
       .robot-stage::before, .robot-stage::after { content: ""; position: absolute; left: 8%; right: 8%; height: 1px; background: rgba(17, 18, 15, .1); }
       .robot-stage::before { top: 28%; }
@@ -71,20 +71,21 @@
       .robot-track::before, .robot-track::after { content: ""; position: absolute; top: -5px; width: 12px; height: 12px; border: 1px solid var(--ink); border-radius: 50%; background: #eef1ea; }
       .robot-track::before { left: 0; }
       .robot-track::after { right: 0; }
-      .robot-runner { position: absolute; bottom: 38px; left: 7%; z-index: 2; width: 104px; animation: robot-travel 8s cubic-bezier(.65, 0, .35, 1) infinite; }
-      .robot-character { display: block; width: 100%; height: auto; overflow: visible; animation: robot-bob 560ms ease-in-out infinite alternate; transform-origin: 50% 100%; }
-      .robot-package { position: absolute; right: 9%; bottom: 39px; width: 48px; height: 42px; border: 2px solid var(--ink); background: var(--coral); transform: rotate(-4deg); animation: package-pulse 2.4s ease-in-out infinite; }
-      .robot-package::before { content: ""; position: absolute; top: 12px; right: -7px; left: -7px; height: 2px; background: var(--ink); transform: rotate(25deg); }
-      .robot-package::after { content: "01"; position: absolute; right: 6px; bottom: 5px; color: var(--white); font-family: var(--mono); font-size: 9px; letter-spacing: .08em; }
+      .robot-runner { position: absolute; bottom: 38px; left: 7%; z-index: 2; width: 132px; animation: robot-travel 8s cubic-bezier(.65, 0, .35, 1) infinite; }
+      .robot-character { display: block; width: 100%; height: auto; overflow: visible; animation: robot-roll 820ms ease-in-out infinite alternate; transform-origin: 50% 100%; }
+      .robot-wheel { transform-box: fill-box; transform-origin: center; animation: robot-wheel-turn 620ms linear infinite; }
+      .robot-eye { transform-box: fill-box; transform-origin: center; animation: robot-blink 5.2s ease-in-out infinite; }
+      .robot-destination { position: absolute; right: 8%; bottom: 31px; width: 18px; height: 18px; border: 2px solid var(--green); background: #eef1ea; transform: rotate(45deg); }
+      .robot-destination::after { content: ""; position: absolute; inset: 4px; background: var(--green); }
       .robot-caption { position: absolute; top: 22px; right: 8%; color: rgba(17, 18, 15, .56); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
       @keyframes robot-travel {
         0%, 10% { left: 7%; }
-        68%, 78% { left: calc(93% - 104px); }
+        68%, 78% { left: calc(93% - 132px); }
         100% { left: 7%; }
       }
-      @keyframes robot-bob {
-        from { transform: translateY(0) rotate(-1deg); }
-        to { transform: translateY(-5px) rotate(1deg); }
+      @keyframes robot-roll {
+        from { transform: translateY(0); }
+        to { transform: translateY(-2px); }
       }
       @keyframes robot-wheel-turn {
         to { transform: rotate(360deg); }
@@ -92,14 +93,6 @@
       @keyframes robot-blink {
         0%, 44%, 48%, 100% { transform: scaleY(1); }
         46%, 47% { transform: scaleY(.12); }
-      }
-      @keyframes robot-arm-swing {
-        from { transform: rotate(-7deg); }
-        to { transform: rotate(9deg); }
-      }
-      @keyframes package-pulse {
-        0%, 70%, 100% { transform: rotate(-4deg) translateY(0); }
-        78% { transform: rotate(-4deg) translateY(-4px); }
       }
 
       .research-section { background: var(--blue); color: var(--white); }
@@ -157,7 +150,7 @@
         .hero-photo { border-left: 0; border-top: 1px solid var(--line-dark); }
         .section-heading { display: block; }
         .motion-heading { display: block; }
-        .motion-heading p { margin-top: 20px; }
+        .motion-heading > div > p { margin-top: 20px; }
         .robot-stage { min-height: 210px; }
         .research-list { display: block; }
         .research-item, .research-item + .research-item { min-height: 0; padding: 24px 0; border-right: 0; border-bottom: 1px solid var(--line-dark); }
@@ -225,9 +218,37 @@
           <div class="robot-stage" aria-hidden="true">
             <span class="robot-caption">field note / 001</span>
             <div class="robot-track"></div>
-            <div class="robot-package"></div>
+            <div class="robot-destination"></div>
             <div class="robot-runner">
-              <img class="robot-character" src="assets/zeno-green-cartoon.png" alt="" />
+              <svg class="robot-character" viewBox="0 0 200 205" role="presentation">
+                <g fill="none" stroke="#11120f" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M69 128v18M131 128v18" stroke-width="4" />
+                  <rect x="48" y="137" width="104" height="28" rx="11" fill="#f5efe5" stroke-width="3" />
+                  <path d="M61 146h78" stroke="#9abf8c" stroke-width="4" />
+                  <g class="robot-wheel">
+                    <circle cx="70" cy="170" r="16" fill="#355746" stroke-width="3" />
+                    <circle cx="70" cy="170" r="7" fill="#eef1ea" stroke-width="2" />
+                    <path d="M70 158v24M58 170h24" stroke="#eef1ea" stroke-width="2" />
+                  </g>
+                  <g class="robot-wheel">
+                    <circle cx="130" cy="170" r="16" fill="#355746" stroke-width="3" />
+                    <circle cx="130" cy="170" r="7" fill="#eef1ea" stroke-width="2" />
+                    <path d="M130 158v24M118 170h24" stroke="#eef1ea" stroke-width="2" />
+                  </g>
+                  <path d="M65 95 42 112 31 132" stroke-width="7" />
+                  <circle cx="30" cy="133" r="5" fill="#b6dba8" stroke-width="3" />
+                  <path d="M135 95 158 112 169 132" stroke-width="7" />
+                  <circle cx="170" cy="133" r="5" fill="#b6dba8" stroke-width="3" />
+                  <path d="M65 83c0-8 6-14 14-14h42c8 0 14 6 14 14v49c0 9-7 15-15 15H80c-8 0-15-6-15-15Z" fill="#ffffff" stroke-width="3" />
+                  <path d="M67 126h66v6c0 8-6 15-14 15H81c-8 0-14-7-14-15Z" fill="#9abf8c" stroke="none" />
+                  <path d="M71 112h58" stroke="#d0dfd0" stroke-width="3" />
+                  <rect x="55" y="22" width="90" height="57" rx="25" fill="#b6dba8" stroke-width="3" />
+                  <rect x="69" y="32" width="62" height="38" rx="17" fill="#f5efe5" stroke-width="2" />
+                  <ellipse class="robot-eye" cx="91" cy="51" rx="3.5" ry="5.5" fill="#11120f" stroke="none" />
+                  <ellipse class="robot-eye" cx="109" cy="51" rx="3.5" ry="5.5" fill="#11120f" stroke="none" />
+                  <path d="M100 79v-8" stroke-width="4" />
+                </g>
+              </svg>
             </div>
           </div>
         </section>
