@@ -1,0 +1,38 @@
+.private-content:has(.melon-game) { max-width: none; padding-top: 36px; }
+.melon-game { --orchard: #67567d; color: #3f354a; font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif; }
+.melon-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
+.melon-game .melon-kicker { margin: 0 0 12px; color: var(--orchard); font: 10px var(--mono); letter-spacing: .18em; }
+.melon-game h2 { font-size: clamp(32px, 4vw, 54px); font-weight: 600; letter-spacing: -.04em; }
+.melon-game .melon-subtitle { margin: 12px 0 0; color: #82738a; font-size: 13px; }
+.melon-badge { flex-shrink: 0; padding: 8px 12px; border: 1px solid #cdbed8; border-radius: 30px; color: var(--orchard); font: 10px var(--mono); letter-spacing: .08em; }
+.melon-layout { width: 100%; max-width: 484px; margin: 0 auto; padding: 32px; background: #eeE8f2; border: 1px solid #ded3e5; border-radius: 22px; }
+.melon-stage { position: relative; overflow: hidden; border: 1px solid #d5c8df; border-radius: 15px; background: #faf7fc; box-shadow: 0 8px 24px #56406312; }
+.melon-canvas { display: block; width: 100%; height: auto; aspect-ratio: 420 / 480; touch-action: none; cursor: crosshair; }
+.melon-canvas:focus-visible { outline: 3px solid #9273af; outline-offset: -5px; border-radius: 14px; }
+.melon-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 26px; background: #faf7fced; text-align: center; }
+.avatar-lineup { display: flex; align-items: center; justify-content: center; width: 100%; max-width: 330px; margin-bottom: 26px; }
+.avatar-lineup img { display: block; width: 21%; max-width: 76px; height: auto; object-fit: contain; filter: drop-shadow(0 5px 5px #60406b18); }
+.avatar-lineup img:first-child { transform: rotate(-12deg) translateY(9px); margin-right: -8px; }
+.avatar-lineup img:last-child { transform: rotate(12deg) translateY(9px); margin-left: -8px; }
+.avatar-lineup img:nth-child(2), .avatar-lineup img:nth-child(3) { z-index: 1; }
+.melon-overlay h3 { margin: 0; font-size: 27px; font-weight: 600; letter-spacing: -.04em; }
+.melon-game .melon-overlay p { max-width: 240px; margin: 16px 0 28px; color: #82738a; font-size: 13px; line-height: 1.9; }
+.melon-game button { min-height: 44px; border: 1px solid #cfc0dc; border-radius: 9px; background: transparent; color: var(--orchard); padding: 10px 16px; font-size: 13px; transition: background 120ms; }
+.melon-game button:hover:not(:disabled) { background: #e1d4eb; }
+.melon-game button:focus-visible { outline: 3px solid #9273af; outline-offset: 3px; }
+.melon-game button:disabled { opacity: .45; cursor: default; }
+.melon-game .melon-play { min-width: 160px; background: var(--orchard); color: #fffafc; border-color: var(--orchard); }
+.melon-game .melon-play:hover { background: #514062; }
+.melon-game .melon-note { margin: 20px 0 0; font-size: 11px; color: #82738a; }
+.melon-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (min-width: 1100px) { .private-view:has(.melon-game) { padding-top: 40px; padding-bottom: 48px; } }
+@media (max-width: 650px) {
+  .private-view:has(.melon-game) { padding: 24px 16px 32px; }
+  .melon-heading { margin-bottom: 22px; }
+  .melon-badge { display: none; }
+  .melon-layout { padding: 12px; border-radius: 18px; max-width: 460px; margin: auto; }
+  .melon-overlay { padding: 16px; }
+  .avatar-lineup { margin-bottom: 18px; }
+  .melon-overlay h3 { font-size: clamp(20px, 5vw, 24px); }
+  .melon-game .melon-overlay p { margin: 12px 0 20px; font-size: 12px; line-height: 1.7; }
+}

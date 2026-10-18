@@ -1,0 +1,5 @@
+# Plaintext private-page content and password. Never publish this directory.
+.private/
+private/content.json.tmp
+.DS_Store
+*.webloc

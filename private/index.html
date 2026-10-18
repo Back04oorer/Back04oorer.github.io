@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="theme-color" content="#11120f" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none'" />
+    <title>合成头像 — Mingyuan Ba</title>
+    <link rel="icon" type="image/webp" href="../assets/avatars/photo/cat-hat.webp" />
+    <link rel="stylesheet" href="../assets/private.css" />
+    <link rel="stylesheet" href="../assets/melon-game.css" />
+    <script type="module" src="../assets/private.js"></script>
+  </head>
+  <body>
+    <div class="site">
+      <header class="site-header">
+        <a class="brand" href="../">Mingyuan <span>Ba</span></a>
+        <a class="back-link" href="../">← Back to home</a>
+      </header>
+      <main>
+        <div class="page-bar">
+          <span class="meta">Face club / Play</span>
+          <span class="meta">Have a little break</span>
+        </div>
+        <section class="private-view" id="private-view" aria-label="合成头像">
+          <div class="private-content" id="private-content">
+            <section class="melon-game" data-melon-game lang="zh-CN" aria-labelledby="melon-title">
+              <header class="melon-heading">
+                <div><p class="melon-kicker">FACE CLUB / 01</p><h2 id="melon-title">合成头像</h2><p class="melon-subtitle">熟悉的面孔，一起合成新纪录。</p></div>
+                <span class="melon-badge">CUSTOM AVATARS ↗</span>
+              </header>
+              <div class="melon-layout">
+                <div class="melon-stage">
+                  <canvas class="melon-canvas" width="420" height="480" tabindex="0" aria-label="合成头像游戏区域" aria-describedby="melon-controls">请使用支持 Canvas 的浏览器来玩游戏。</canvas>
+                  <div class="melon-overlay" data-overlay>
+                    <div class="avatar-lineup" aria-label="照片头像预览">
+                      <img src="../assets/avatars/photo/polka-hat.webp" alt="波点帽照片头像" width="90" height="90" />
+                      <img src="../assets/avatars/photo/bob.webp" alt="短发照片头像" width="100" height="100" />
+                      <img src="../assets/avatars/photo/closeup.webp" alt="侧脸照片头像" width="90" height="90" />
+                      <img src="../assets/avatars/photo/cat-hat.webp" alt="猫耳帽照片头像" width="90" height="90" />
+                      <img src="../assets/avatars/photo/parted-bob.webp" alt="偏分短发照片头像" width="90" height="90" />
+                    </div>
+                    <h3 data-overlay-title>今天，合成一个新表情。</h3>
+                    <p data-overlay-copy>相同头像、相同等级，碰在一起就升级。向 Lv.11 出发吧。</p>
+                    <button type="button" class="melon-play" data-play>开始合成</button>
+                  </div>
+                </div>
+
+              </div>
+
+              <p class="melon-note" data-game-note>最高分保存在这台设备上。刷新后，本局游戏会重新开始。</p>
+              <p class="melon-sr" id="melon-controls">鼠标移动后点击落下，手机拖动后松手落下。方向键移动，空格落下，Esc 暂停。相同头像和大小碰到一起即可合成。</p>
+              <div class="melon-sr" data-announcement role="status" aria-live="polite" aria-atomic="true"></div>
+            </section>
+          </div>
+          <noscript><p>请启用 JavaScript 来玩合成头像。</p></noscript>
+        </section>
+      </main>
+      <footer class="site-footer"><p class="meta">Mingyuan Ba / 2026</p><a class="meta" href="../">mingyuanba.com</a></footer>
+    </div>
+  </body>
+</html>
