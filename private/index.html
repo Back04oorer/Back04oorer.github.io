@@ -5,28 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow, noarchive" />
     <meta name="referrer" content="no-referrer" />
-    <meta name="theme-color" content="#11120f" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none'" />
-    <title>合成头像 — Mingyuan Ba</title>
-    <link rel="icon" type="image/webp" href="../assets/avatars/photo/cat-hat.webp" />
-    <link rel="stylesheet" href="../assets/private.css" />
-    <link rel="stylesheet" href="../assets/melon-game.css" />
-    <script type="module" src="../assets/private.js"></script>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'" />
+    <meta name="theme-color" content="#f5efe5" />
+    <title>暂未开放 — Mingyuan Ba</title>
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: 24px; background: #f5efe5; color: #11120f; font: 18px/1.6 "Helvetica Neue", Arial, sans-serif; }
+      main { width: min(480px, 100%); }
+      h1 { margin: 0 0 12px; font-size: 32px; color: #355746; }
+      p { margin: 0 0 24px; }
+      a { color: #29415f; text-underline-offset: 4px; }
+      a:focus-visible { outline: 2px solid #355746; outline-offset: 4px; }
+    </style>
   </head>
   <body>
-    <div class="site">
-      <header class="site-header">
-        <a class="brand" href="../">Mingyuan <span>Ba</span></a>
-        <a class="back-link" href="../">← Back to home</a>
-      </header>
-      <main>
-        <div class="page-bar">
-          <span class="meta">Face club / Play</span>
-          <span class="meta">Have a little break</span>
-        </div>
-        <section class="private-view" id="private-view" aria-label="合成头像">
-          <div class="private-content" id="private-content">
-            <section class="melon-game" data-melon-game lang="zh-CN" aria-labelledby="melon-title">
+    <main>
+      <h1>暂未开放</h1>
+      <p>小游戏暂时停用。</p>
+      <a href="../">← 返回主页</a>
+    </main>
+    <!-- Archived markup is inert. Keep the game script and styles unloaded until explicitly re-enabled. -->
+    <template id="archived-game">
+      <div class="private-content" id="private-content">
+<section class="melon-game" data-melon-game lang="zh-CN" aria-labelledby="melon-title">
               <header class="melon-heading">
                 <div><p class="melon-kicker">FACE CLUB / 01</p><h2 id="melon-title">合成头像</h2><p class="melon-subtitle">熟悉的面孔，一起合成新纪录。</p></div>
                 <span class="melon-badge">CUSTOM AVATARS ↗</span>
@@ -54,11 +55,7 @@
               <p class="melon-sr" id="melon-controls">鼠标移动后点击落下，手机拖动后松手落下。方向键移动，空格落下，Esc 暂停。相同头像和大小碰到一起即可合成。</p>
               <div class="melon-sr" data-announcement role="status" aria-live="polite" aria-atomic="true"></div>
             </section>
-          </div>
-          <noscript><p>请启用 JavaScript 来玩合成头像。</p></noscript>
-        </section>
-      </main>
-      <footer class="site-footer"><p class="meta">Mingyuan Ba / 2026</p><a class="meta" href="../">mingyuanba.com</a></footer>
-    </div>
+      </div>
+    </template>
   </body>
 </html>

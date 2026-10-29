@@ -1,6 +1,8 @@
 # 小游戏页面
 
-当前无需密码，打开 `/private/` 即可玩「合成头像」，主页页脚入口为 **Play**。页面结构在 `private/index.html`，`assets/private.js` 初始化游戏，不读取旧版加密内容。
+当前状态：**暂时停用**（2026-10-29）。主页和 demo 页的 **Play** 入口已移除，直接访问 `/private/` 仅显示「暂未开放」，不加载游戏脚本、头像或游戏样式。
+
+游戏原有标记保存在 `private/index.html` 的惰性 `<template id="archived-game">` 中，逻辑与素材保持原样。仅在用户明确要求恢复时，再将模板内容移回可见页面、恢复只允许同源资源的 CSP，并加载 `assets/private.css`、`assets/melon-game.css` 和 `assets/private.js`；不要仅恢复页脚链接。
 
 页面已移除信息/操作面板（分数、最高纪录、下一张预览、暂停/重开按钮、玩法说明）和头像进化图鉴，游戏区域居中。保留键盘及触控操作，Esc 可暂停，暂停或结束浮层可继续/再来一局。
 
@@ -22,8 +24,8 @@
 
 游戏逻辑在 `assets/melon-engine.mjs`，渲染和操作在 `assets/melon-game.mjs`，样式在 `assets/melon-game.css`。物理和计分规则沿用原版，动漫头像最高分使用独立浏览器存储键。刷新会重新开始当前对局。
 
-预览：`python3 -m http.server 8000 --bind 127.0.0.1`，打开 `http://localhost:8000/private/`。
+预览：`python3 -m http.server 8000 --bind 127.0.0.1`，打开 `http://localhost:8000/private/` 可检查停用提示。
 
 检查：`node --test scripts/melon.test.mjs`。
 
-旧版加密内容与密码保留在 `.private/`、`private/content.json` 及相关脚本中，当前页面不使用它们。发布时提交 `private/index.html` 和引用的游戏资源，无需重新加密；不提交 `.private/`。
+旧版加密内容与密码保留在 `.private/`、`private/content.json` 及相关脚本中，当前页面不使用它们。发布时保留 `private/index.html` 的停用状态，无需重新加密；不提交 `.private/`。
